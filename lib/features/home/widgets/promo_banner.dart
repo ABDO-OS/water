@@ -23,7 +23,7 @@ class _PromoBannerState extends State<PromoBanner> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 16),
+        SizedBox(height: 10),
         SizedBox(
           height: 160,
           child: PageView.builder(
@@ -31,7 +31,7 @@ class _PromoBannerState extends State<PromoBanner> {
             itemCount: 3,
             itemBuilder: (context, index) {
               return Container(
-                margin: const EdgeInsets.symmetric(horizontal: 8),
+                margin: const EdgeInsets.only(left: 15),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   image: const DecorationImage(
@@ -45,7 +45,7 @@ class _PromoBannerState extends State<PromoBanner> {
         ),
         // const SizedBox(height: 8),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 32),
+          padding: const EdgeInsets.symmetric(horizontal: 24),
           child: AnimatedSmoothIndicator(
             activeIndex: _pageController.hasClients
                 ? (_pageController.page?.round() ?? 0)
@@ -61,7 +61,7 @@ class _PromoBannerState extends State<PromoBanner> {
             ),
           ),
         ),
-        SizedBox(height: 40),
+        SizedBox(height: 24),
       ],
     );
   }

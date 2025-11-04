@@ -8,7 +8,7 @@ class HomeAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(left: 24, right: 24, top: 35, bottom: 16),
+      padding: const EdgeInsets.only(left: 24, right: 24, top: 35, bottom: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
