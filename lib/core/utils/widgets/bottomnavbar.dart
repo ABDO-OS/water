@@ -36,7 +36,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildNavItem(index: 0, icon: Icons.person_outline, label: 'حسابي'),
+          _buildNavItem(index: 4, icon: Icons.person_outline, label: 'حسابي'),
           _buildNavItem(
             index: 1,
             icon: Icons.handshake_outlined,
@@ -48,7 +48,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             icon: Icons.water_drop_outlined,
             label: 'الطلبات',
           ),
-          _buildNavItem(index: 4, icon: Icons.home_outlined, label: 'الرئيسية'),
+          _buildNavItem(index: 0, icon: Icons.home_outlined, label: 'الرئيسية'),
         ],
       ),
     );
@@ -142,18 +142,19 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 Container(
                   width: 12,
                   height: 12,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                ),
+                SizedBox(width: 2),
+                Container(
+                  width: 12,
+                  height: 12,
                   margin: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(2),
-                  ),
-                ),
-                Container(
-                  width: 12,
-                  height: 12,
-                  decoration: const BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
                   ),
                 ),
               ],
