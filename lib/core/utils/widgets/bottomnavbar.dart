@@ -22,8 +22,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
       height: 80,
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(70),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
@@ -36,19 +38,21 @@ class _BottomNavBarState extends State<BottomNavBar> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          _buildNavItem(index: 4, icon: Icons.person_outline, label: 'حسابي'),
-          _buildNavItem(
-            index: 1,
-            icon: Icons.handshake_outlined,
-            label: 'التعاقدات',
-          ),
-          _buildCenterButton(),
+          _buildNavItem(index: 4, icon: Icons.home_outlined, label: 'الرئيسية'),
+
           _buildNavItem(
             index: 3,
             icon: Icons.water_drop_outlined,
             label: 'الطلبات',
           ),
-          _buildNavItem(index: 0, icon: Icons.home_outlined, label: 'الرئيسية'),
+          _buildCenterButton(),
+          _buildNavItem(
+            index: 1,
+            icon: Icons.handshake_outlined,
+            label: 'التعاقدات',
+          ),
+
+          _buildNavItem(index: 0, icon: Icons.person_outline, label: 'حسابي'),
         ],
       ),
     );
@@ -65,7 +69,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
         setState(() {
           _selectedIndex = index;
         });
-        // TODO: Add navigation logic
       },
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 8),
@@ -74,16 +77,15 @@ class _BottomNavBarState extends State<BottomNavBar> {
           children: [
             Icon(
               icon,
-              size: 32,
+              size: 24,
               color: isSelected
                   ? AppColors.primaryColor
                   : AppColors.primaryColor.withValues(alpha: 0.4),
             ),
-            const SizedBox(height: 4),
             Text(
               label,
               style: AppFonts.textRegular.copyWith(
-                fontSize: 12,
+                fontSize: 10,
                 color: isSelected
                     ? AppColors.primaryColor
                     : AppColors.primaryColor.withValues(alpha: 0.4),
@@ -101,13 +103,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
         setState(() {
           _selectedIndex = 2;
         });
-        // TODO: Add services navigation logic
       },
       child: Container(
         width: 70,
         height: 70,
         decoration: BoxDecoration(
-          color: AppColors.primaryColor,
+          color: AppColors.centerbuttonColor,
           shape: BoxShape.circle,
         ),
         child: Column(
@@ -117,8 +118,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 12,
-                  height: 12,
+                  width: 10,
+                  height: 10,
                   margin: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -126,8 +127,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
                   ),
                 ),
                 Container(
-                  width: 12,
-                  height: 12,
+                  width: 10,
+                  height: 10,
                   margin: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -140,8 +141,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 12,
-                  height: 12,
+                  width: 10,
+                  height: 10,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
@@ -149,8 +150,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 ),
                 SizedBox(width: 2),
                 Container(
-                  width: 12,
-                  height: 12,
+                  width: 10,
+                  height: 10,
                   margin: const EdgeInsets.all(2),
                   decoration: BoxDecoration(
                     color: Colors.white,

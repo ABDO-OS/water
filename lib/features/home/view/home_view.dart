@@ -22,7 +22,7 @@ class HomeView extends StatelessWidget {
               const SearchBarWidget(),
               const PromoBanner(),
               const WaterQuantitySelector(),
-              const OrderButton(),
+              // const OrderButton(),
               const SizedBox(height: 20),
             ],
           ),
