@@ -17,76 +17,96 @@ class _WaterQuantitySelectorState extends State<WaterQuantitySelector> {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 24),
-      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 16),
       decoration: BoxDecoration(
         color: AppColors.waterQuantityColor.withValues(alpha: 0.25),
         borderRadius: BorderRadius.circular(14),
       ),
       child: Column(
         children: [
-          Row(
-            children: [
-              Text(
-                'كم تبغى مويه؟',
-                style: AppFonts.textMedium.copyWith(
-                  fontSize: 18,
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(width: 2),
-              Icon(Icons.water_drop, color: AppColors.primaryColor, size: 24),
-
-              const Spacer(),
-
-              Container(
-                padding: const EdgeInsets.all(1),
-                margin: const EdgeInsets.only(right: 1),
-                decoration: BoxDecoration(
-                  color: AppColors.waterQuantityColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: Icon(
-                    Icons.arrow_back_ios,
-                    color: AppColors.primaryColor.withValues(alpha: 0.4),
-                    size: 20,
-                  ),
-                ),
-              ),
-              const SizedBox(width: 5),
-              Container(
-                padding: const EdgeInsets.all(1),
-                decoration: BoxDecoration(
-                  color: AppColors.waterQuantityColor,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Center(
-                  child: Icon(
-                    Icons.arrow_forward_ios,
-                    color: AppColors.primaryColor.withValues(alpha: 0.4),
-                    size: 20,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 20),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
+          // Title Row with horizontal padding
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
             child: Row(
               children: [
-                _buildQuantityCard(3, '18 طن'),
-                const SizedBox(width: 12),
-                _buildQuantityCard(2, '12 طن'),
-                const SizedBox(width: 12),
-                _buildQuantityCard(1, '6 طن'),
-                const SizedBox(width: 12),
-                _buildQuantityCard(0, '6 طن'),
+                Text(
+                  'كم تبغى مويه؟',
+                  style: AppFonts.textMedium.copyWith(
+                    fontSize: 18,
+                    color: Colors.black,
+                  ),
+                ),
+                const SizedBox(width: 2),
+                Icon(Icons.water_drop, color: AppColors.primaryColor, size: 24),
+
+                const Spacer(),
+
+                Container(
+                  padding: const EdgeInsets.all(1),
+                  margin: const EdgeInsets.only(right: 1),
+                  decoration: BoxDecoration(
+                    color: AppColors.waterQuantityColor,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Center(
+                    child: Icon(
+                      Icons.arrow_back_ios,
+                      color: AppColors.primaryColor.withValues(alpha: 0.4),
+                      size: 20,
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 5),
+                Container(
+                  padding: const EdgeInsets.all(1),
+                  decoration: BoxDecoration(
+                    color: AppColors.waterQuantityColor,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Center(
+                    child: Icon(
+                      Icons.arrow_forward_ios,
+                      color: AppColors.primaryColor.withValues(alpha: 0.4),
+                      size: 20,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
+          const SizedBox(height: 20),
+          // Scrollable cards without padding - extend to edges
+          Padding(
+            padding: const EdgeInsets.only(
+              right: 20,
+            ), // Start from right edge with margin
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              reverse: true, // Start from right side (Arabic RTL)
+              child: Row(
+                children: [
+                  _buildQuantityCard(0, '6 طن'),
+                  const SizedBox(width: 12),
+                  _buildQuantityCard(1, '6 طن'),
+                  const SizedBox(width: 12),
+                  _buildQuantityCard(2, '12 طن'),
+                  const SizedBox(width: 12),
+                  _buildQuantityCard(3, '18 طن'),
+                  const SizedBox(width: 24), // Left padding for scroll end
+                ],
+              ),
+            ),
+          ),
           const SizedBox(height: 18),
-          CustomButton(title: 'اطلب الآن', onPressed: () {}, radius: 14),
+          // Button with horizontal padding
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: CustomButton(
+              title: 'اطلب الآن',
+              onPressed: () {},
+              radius: 14,
+            ),
+          ),
         ],
       ),
     );

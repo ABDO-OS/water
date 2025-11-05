@@ -15,7 +15,7 @@ class AppFonts {
   static TextStyle textRegular = TextStyle(
     fontFamily: arabicFont,
     fontSize: 14,
-    fontWeight: FontWeight.w300,
+    fontWeight: FontWeight.normal,
     color: Colors.black,
   );
   static TextStyle subTitleob = TextStyle(
